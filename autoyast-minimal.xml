@@ -1,0 +1,173 @@
+<?xml version="1.0"?>
+<!DOCTYPE profile>
+<profile xmlns="http://www.suse.com/1.0/yast2ns" xmlns:config="http://www.suse.com/1.0/configns">
+  <general t="map">
+    <mode t="map">
+      <confirm t="boolean">false</confirm>
+      <second_stage t="boolean">false</second_stage>
+    </mode>
+  </general>
+  <keyboard t="map">
+    <keymap>german</keymap>
+  </keyboard>
+  <language t="map">
+    <languages>en_US</languages>
+  </language>
+  <networking t="map">
+    <keep_install_network t="boolean">true</keep_install_network>
+  </networking>
+  <partitioning t="list">
+    <drive t="map">
+      <disklabel>gpt</disklabel>
+      <initialize t="boolean">false</initialize>
+      <partitions t="list">
+        <partition t="map">
+          <create t="boolean">true</create>
+          <filesystem t="symbol">xfs</filesystem>
+          <format t="boolean">true</format>
+          <mount>/boot</mount>
+          <mountby t="symbol">device</mountby>
+          <partition_id t="integer">131</partition_id>
+          <partition_type>primary</partition_type>
+          <size>2.00 GiB</size>
+        </partition>
+        <partition t="map">
+          <create t="boolean">true</create>
+          <format t="boolean">false</format>
+          <lvm_group>system</lvm_group>
+          <partition_id t="integer">142</partition_id>
+          <partition_type>primary</partition_type>
+          <size>max</size>
+        </partition>
+      </partitions>
+      <type t="symbol">CT_DISK</type>
+      <use>all</use>
+    </drive>
+    <drive t="map">
+      <device>/dev/system</device>
+      <keep_unknown_lv t="boolean">false</keep_unknown_lv>
+      <partitions t="list">
+        <partition t="map">
+          <create t="boolean">true</create>
+          <create_subvolumes t="boolean">true</create_subvolumes>
+          <filesystem t="symbol">xfs</filesystem>
+          <format t="boolean">true</format>
+          <lv_name>root</lv_name>
+          <mount>/</mount>
+          <size>20.00 GiB</size>
+        </partition>
+        <partition t="map">
+          <create t="boolean">true</create>
+          <filesystem t="symbol">xfs</filesystem>
+          <format t="boolean">true</format>
+          <lv_name>usr</lv_name>
+          <mount>/usr</mount>
+          <size>20.00 GiB</size>
+        </partition>
+        <partition t="map">
+          <create t="boolean">true</create>
+          <filesystem t="symbol">xfs</filesystem>
+          <format t="boolean">true</format>
+          <lv_name>var</lv_name>
+          <mount>/var</mount>
+          <size>10.00 GiB</size>
+        </partition>
+        <partition t="map">
+          <create t="boolean">true</create>
+          <filesystem t="symbol">xfs</filesystem>
+          <format t="boolean">true</format>
+          <lv_name>var_log</lv_name>
+          <mount>/var/log</mount>
+          <size>8.00 GiB</size>
+        </partition>
+        <partition t="map">
+          <create t="boolean">true</create>
+          <filesystem t="symbol">xfs</filesystem>
+          <format t="boolean">true</format>
+          <lv_name>var_log_audit</lv_name>
+          <mount>/var/log/audit</mount>
+          <size>2.00 GiB</size>
+        </partition>
+        <partition t="map">
+          <create t="boolean">true</create>
+          <filesystem t="symbol">xfs</filesystem>
+          <format t="boolean">true</format>
+          <lv_name>var_tmp</lv_name>
+          <mount>/var/tmp</mount>
+          <size>2.00 GiB</size>
+        </partition>
+        <partition t="map">
+          <create t="boolean">true</create>
+          <filesystem t="symbol">xfs</filesystem>
+          <format t="boolean">true</format>
+          <lv_name>tmp</lv_name>
+          <mount>/tmp</mount>
+          <size>4.00 GiB</size>
+        </partition>
+        <partition t="map">
+          <create t="boolean">true</create>
+          <filesystem t="symbol">xfs</filesystem>
+          <format t="boolean">true</format>
+          <lv_name>home</lv_name>
+          <mount>/home</mount>
+          <size>8.00 GiB</size>
+        </partition>
+        <partition t="map">
+          <create t="boolean">true</create>
+          <format t="boolean">true</format>
+          <lv_name>swap</lv_name>
+          <mount>swap</mount>
+          <size>2.00 GiB</size>
+        </partition>
+      </partitions>
+      <pesize>4.00 MiB</pesize>
+      <type t="symbol">CT_LVM</type>
+      <use>all</use>
+    </drive>
+  </partitioning>
+  <scripts/>
+  <software t="map">
+    <install_recommended t="boolean">false</install_recommended>
+    <instsource/>
+    <packages t="list">
+      <package>iputils</package>
+      <package>iproute2</package>
+      <package>vim</package>
+      <package>curl</package>
+      <package>glibc-locale</package>
+    </packages>
+    <patterns t="list">
+      <pattern>base</pattern>
+    </patterns>
+    <remove-packages t="list">
+      <package>/yast2.*/</package>
+      <package>autoyast2</package>
+      <package>autoyast2-installation</package>
+    </remove-packages>
+  </software>
+  <timezone t="map">
+    <hwclock>UTC</hwclock>
+    <timezone>Europe/Berlin</timezone>
+  </timezone>
+  <users t="list">
+    <user t="map">
+      <authorized_keys t="list"/>
+      <encrypted t="boolean">false</encrypted>
+      <fullname>root</fullname>
+      <gid>0</gid>
+      <home>/root</home>
+      <password_settings t="map">
+        <expire/>
+        <flag/>
+        <inact/>
+        <max/>
+        <min/>
+        <warn/>
+      </password_settings>
+      <shell>/bin/bash</shell>
+      <uid>0</uid>
+      <user_password>linux</user_password>
+      <username>root</username>
+    </user>
+  </users>
+</profile>
